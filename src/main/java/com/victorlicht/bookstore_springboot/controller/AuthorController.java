@@ -40,7 +40,7 @@ public class AuthorController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/post")
     public ResponseEntity<Author> insert(@RequestBody Author author) {
         Author insertedAuthor = authorService.insert(author);
         return ResponseEntity.status(HttpStatus.CREATED).body(insertedAuthor);

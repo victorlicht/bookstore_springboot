@@ -3,6 +3,7 @@ package com.victorlicht.bookstore_springboot.service;
 import com.victorlicht.bookstore_springboot.model.Author;
 import com.victorlicht.bookstore_springboot.repository.AuthorRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class AuthorService {
     private final AuthorRepository authorRepository;
 
+    @Autowired
     public AuthorService(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
