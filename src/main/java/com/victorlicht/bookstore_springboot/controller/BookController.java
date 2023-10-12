@@ -21,7 +21,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Book> findById(@PathVariable Long id) {
+    public ResponseEntity<Book> findById(@PathVariable String id) {
         Book book = bookService.findById(id);
         if (book != null) {
             return ResponseEntity.ok(book);
@@ -47,7 +47,7 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Book> update(@PathVariable Long id, @RequestBody Book book) {
+    public ResponseEntity<Book> update(@PathVariable String id, @RequestBody Book book) {
         book.setId(id); // Make sure the ID is set correctly
         Book updatedBook = bookService.update(book);
         if (updatedBook != null) {
@@ -58,7 +58,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteById(@PathVariable String id) {
         bookService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

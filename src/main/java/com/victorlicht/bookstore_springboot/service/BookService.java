@@ -16,7 +16,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public Book findById(Long id) {
+    public Book findById(String id) {
         return bookRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Book Not Found with ID: " + id));
     }
@@ -38,7 +38,7 @@ public class BookService {
         return bookRepository.save(existingBook);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(String id) {
         try {
             bookRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
